@@ -52,7 +52,7 @@ router.post(
           role: req.body.role,
           vehicleType: req.body.vehicleType
         });
-        console.log(user.Id)
+        
         const data = await {
           user: {
             id: user.Id,

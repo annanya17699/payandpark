@@ -6,7 +6,6 @@ const User = require('../../model/UserSchema');
 const router = express.Router();
 router.post('/send-otp', 
 async (req, res) => {
-    console.log(req.body);
     try {
       const email = req.body.email;
       const checkUserPresent = await User.findOne({ email });
@@ -36,7 +35,6 @@ async (req, res) => {
         otp,
       });
     } catch (error) {
-      console.log(error.message);
       return res.status(500).json({ success: false, error: error.message });
     }
   }

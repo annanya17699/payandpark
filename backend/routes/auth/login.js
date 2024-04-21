@@ -7,7 +7,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const fetchUser = require("../../middleware/fetchUser");
 require('dotenv').config();
-const SECRET_KEY = process.env.SECRET;
+const SECRET_KEY = process.env.SECRET_KEY;
 
 router.post(
     "/createuser",
@@ -24,7 +24,6 @@ router.post(
       if (!errors.isEmpty()) {
         return res.status(400).json({ success:false,errors: errors.array() });
       }
-      console.log(req.body)
       try {
         let user = await User.findOne({ email: req.body.email });
         if (user) {
@@ -33,34 +32,34 @@ router.post(
             .json({success:false, error: "User already exists with this email" });
         }
         const otpResp = await OTP.find({ email: req.body.email }).sort({ createdAt: -1 }).limit(1);
-        await console.log(otpResp[0].otp == req.body.otp);
         if (otpResp.length === 0 || req.body.otp !== otpResp[0].otp) {
             return res.status(400).json({
                 success: false,
                 message: 'The OTP is not valid',
             });
         }
-        console.log(otpResp)
         let salt = await bcrypt.genSalt(10);
         let secpass = await bcrypt.hash(req.body.password, salt);
-        console.log(secpass)
-        user = await User.create({
+        let userNew;
+        User.create({
           name: req.body.name,
           email: req.body.email,
           password: secpass,
           vehicleNumber: req.body.vehicleNumber,
           role: req.body.role,
           vehicleType: req.body.vehicleType
-        });
-        
-        const data = await {
-          user: {
-            id: user.Id,
-          },
+        }).then(result => {
+          userNew = result;
+          const payload = {
+            user: {
+            id: userNew.id,
+            },
         };
-        const AUTH_TOKEN = jwt.sign(data, SECRET_KEY);
-        console.log(AUTH_TOKEN)
-        res.json({success:true, AUTH_TOKEN });
+          const AUTH_TOKEN = jwt.sign(payload, SECRET_KEY);
+          res.json({success:true, AUTH_TOKEN });
+        }).catch(err =>{
+          res.status(500).json({success:false, error: err });
+        });
       } catch (error) {
         res.status(500).json({success:false, error: error });
       }

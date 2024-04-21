@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* @font-face {
+    font-family: 'Blueberry Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Blueberry Regular'), url('./path/to/Blueberry Regular.woff') format('woff');
+  }
+   */

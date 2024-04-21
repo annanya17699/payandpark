@@ -1,4 +1,10 @@
 const express = require('express')
+const connectToMongoose = require('./db');
+
+require('dotenv').config({ path: './.env'})
+
+connectToMongoose();
+
 const app = express()
 const port = process.env.PORT;
 

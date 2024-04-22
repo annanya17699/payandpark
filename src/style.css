@@ -8,11 +8,8 @@
   
 /* Global glass effect */
 .glass-effect {
-    background-color: rgba(255, 255, 255, 0.3); 
-    backdrop-filter: blur(2px);
-    padding: 20px;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-  }
+  background-color: rgba(139, 140, 136, 0.5); /* Greyish color */
+  backdrop-filter: blur(1px);
+  padding: 20px;
+  width: 100%;
+}

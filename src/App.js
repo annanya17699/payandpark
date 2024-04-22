@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
 import Dashboard from './components/Dashboard';
+import './App.css';
 import './style.css'
 
 

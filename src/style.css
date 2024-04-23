@@ -1,0 +1,15 @@
+/* fonts.css */
+@font-face {
+    font-family: 'Blueberry Regular';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Blueberry Regular'), url('../src/assets/Blueberry\ Regular\ .woff') format('woff');
+  }
+  
+/* Global glass effect */
+.glass-effect {
+  background-color: rgba(139, 140, 136, 0.5); /* Greyish color */
+  backdrop-filter: blur(1px);
+  padding: 20px;
+  width: 100%;
+}

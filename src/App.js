@@ -1,10 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Dashboard from './components/Dashboard';
 import './App.css';
+import './style.css'
+
 
 function App() {
   return (
     <div>
-      <h1 className='text-center'>Hello</h1>
+      <Dashboard/>
     </div>
   );
 }

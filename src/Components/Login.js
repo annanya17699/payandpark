@@ -3,7 +3,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import EmailIcon from '@mui/icons-material/Email';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import React from "react";
-import background from '../../assest/background.jpg'
+import background from '../assets/Background.png'
 import { Link } from "react-router-dom";
 
 export default function Login() {

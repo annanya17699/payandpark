@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'BlueberryRegular': ['Blueberry Regular', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }

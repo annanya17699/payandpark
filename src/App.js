@@ -1,5 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Dashboard from './components/Dashboard';
 import './App.css';
+import './style.css'
 import { BrowserRouter, Routes, Route} from 'react-router-dom';
 import Sign from './Components/Sign';
 import Login from './Components/Login'

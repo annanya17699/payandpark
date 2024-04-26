@@ -1,11 +1,13 @@
 const express = require('express')
 const connectToMongoose = require('./db');
+const cors = require('cors')
 
 require('dotenv').config()
 
 connectToMongoose();
 
 const app = express()
+app.use(cors())
 const port = process.env.PORT;
 
 app.use(express.json());

@@ -18,15 +18,15 @@ const userSchema = new Schema({
   role : {
     type : String,
     required : true,
-    enum: ['Admin', 'Owner', 'User']
+    enum: ['Admin', 'User']
   },
   vehicleType : {
     type : String,
-    required : true
+    required : false
   },
   vehicleNumber : {
     type : String,
-    required : true,
+    required : false,
     unique: true
   }
 });

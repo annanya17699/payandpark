@@ -1,15 +1,12 @@
 import React from "react";
-import Navbar from "./Navbar";
-import backgroundImage from "../assets/Background.png";
+import '../App.css'
 
 const Dashboard = () => {
   return (
     <div className="dashboard">
       <div
         className="bg-cover bg-center h-screen flex flex-col justify-center items-center"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
       >
-        <Navbar />
         <div
           className="glass-effect p-8 rounded-lg text-center "
           style={{ width: "50%" }}

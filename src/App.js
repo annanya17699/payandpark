@@ -8,37 +8,63 @@ import Login from "./components/Login";
 import UserState from "./context/UserState";
 import EmailVerification from "./components/EmailVerification";
 import Alert from "./components/Alert";
-import React , {useState} from 'react';
+import React, { useState } from 'react';
+import ParkingDetail from "./components/ParkingDetail";
+import Navbar from "./components/Navbar";
 function App() {
 
   const [alert, setAlert] = useState(null);
-  const showAlert = (message, type)=>{
+  const showAlert = (message, type) => {
     setAlert({
       msg: message,
       type: type
     })
     setTimeout(() => {
-        setAlert(null);
+      setAlert(null);
     }, 1500);
-}
+  }
 
   return (
-      <UserState>
-        {
-          <>
-          {alert && <Alert alert={alert}/>}
-          
+    <UserState>
+      {
+        <>
+          {alert && <Alert alert={alert} />}
+
           <BrowserRouter>
             <Routes>
-              <Route path="/" element={<Dashboard showAlert={showAlert} />} />
-              <Route path="/sign" element={<Sign showAlert={showAlert}/>} />
-              <Route path="/login" element={<Login showAlert={showAlert}/>} />
-              <Route path="/otp" element={<EmailVerification showAlert={showAlert}/>} />
+              <Route path="/" element={<>
+              <Navbar/>
+              <Dashboard showAlert={showAlert} />
+              </>} />
+              <Route path="/sign" element={
+                <>
+                <Navbar/>
+                 <Sign showAlert={showAlert} />
+                </>
+              }/>
+              <Route path="/login" element={
+              <>
+              <Navbar/>
+              <Login showAlert={showAlert} />
+              </>
+              } />
+              <Route path="/otp" element={
+                <>
+                <Navbar/>
+                <EmailVerification showAlert={showAlert} />
+                </>
+              } />
+              <Route path="/parking" element={
+                <>
+                <Navbar/>
+                <ParkingDetail showAlert={showAlert} />
+                </>
+              } />
             </Routes>
-          </BrowserRouter>     
-          </>  
-        }
-      </UserState>
+          </BrowserRouter>
+        </>
+      }
+    </UserState>
   );
 }
 

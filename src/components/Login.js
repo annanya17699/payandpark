@@ -3,10 +3,9 @@ import InputAdornment from '@mui/material/InputAdornment';
 import EmailIcon from '@mui/icons-material/Email';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import React, { useState, useContext } from "react";
-import background from '../assets/Background.png'
 import { Link, useNavigate } from "react-router-dom";
 import UserContext from "../context/UserContext";
-import Navbar from "./Navbar";
+import '../App.css'
 
 export default function Login(props) {
     const context = useContext(UserContext);
@@ -28,10 +27,9 @@ export default function Login(props) {
         }
     }
     return (
-        <div style={{ backgroundImage: `url(${background})`, minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <Navbar/>
+        <div className="flex justify-center items-center">
             <form>
-                <div className="flex flex-col gap-10 bg-white py-10 px-20 rounded-lg justify-center">
+                <div className="flex flex-col gap-10 mt-28 bg-white py-10 px-20 rounded-lg justify-center">
                     <h3 className="text-green-700 text-center">Login</h3>
                     <TextField id="outlined-basic" name="email" label="Email" color="success" onChange={handleChange} InputProps={{
                         startAdornment: (

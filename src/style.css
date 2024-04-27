@@ -10,6 +10,6 @@
 .glass-effect {
   background-color: rgba(139, 140, 136, 0.5); /* Greyish color */
   backdrop-filter: blur(1px);
-  padding: 20px;
+  padding: 10px 20px; 
   width: 100%;
 }

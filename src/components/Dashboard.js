@@ -1,7 +1,16 @@
 import React from "react";
 import '../App.css'
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+  const handleClick = () =>{
+    if(localStorage.getItem('token')){
+      navigate('/parking');
+    }else{
+      navigate('/login')
+    }
+  }
   return (
     <div className="dashboard">
       <div
@@ -20,7 +29,7 @@ const Dashboard = () => {
             Start your stress-free parking journey today.
           </p>
         </div>
-        <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 mt-2 rounded-full ">
+        <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 mt-2 rounded-full " onClick={handleClick}>
           Search for spot
         </button>
       </div>

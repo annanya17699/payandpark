@@ -11,6 +11,7 @@ import Alert from "./components/Alert";
 import React, { useState } from 'react';
 import ParkingDetail from "./components/ParkingDetail";
 import Navbar from "./components/Navbar";
+import UserDetails from "./components/UserDetails";
 function App() {
 
   const [alert, setAlert] = useState(null);
@@ -58,6 +59,12 @@ function App() {
                 <>
                 <Navbar/>
                 <ParkingDetail showAlert={showAlert} />
+                </>
+              } />
+              <Route path="/user" element={
+                <>
+                <Navbar/>
+                <UserDetails showAlert={showAlert} />
                 </>
               } />
             </Routes>

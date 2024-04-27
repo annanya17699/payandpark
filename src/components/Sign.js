@@ -4,12 +4,11 @@ import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import EmailIcon from '@mui/icons-material/Email';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import React , { useState , useContext } from "react";
-import background from '../assets/Background.png'
 import { Link , useNavigate} from "react-router-dom";
 import UserContext from "../context/UserContext";
 import TwoWheelerIcon from '@mui/icons-material/TwoWheeler';
 import ReorderIcon from '@mui/icons-material/Reorder';
-import Navbar from "./Navbar";
+import '../App.css';
 
 function Sign(props) {
   const context = useContext(UserContext);
@@ -24,10 +23,9 @@ function Sign(props) {
     navigate('/otp', { state: { user: user } });
   }
   return (
-    <div style={{ backgroundImage: `url(${background})`, minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <Navbar />
+    <div className="flex justify-center items-center">
       <form>
-        <div className="flex flex-col gap-7 bg-white py-10 px-28 rounded-lg justify-center">
+        <div className="flex flex-col gap-4 mt-20 bg-white py-10 px-28 rounded-lg justify-center">
           <h3 className="text-green-700 text-center">Sign Up</h3>
           <TextField id="outlined-basic" color="success" onChange={handleChange} name="name" label="Fullname" type='text' InputProps={{
             startAdornment: (

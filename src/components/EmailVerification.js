@@ -5,8 +5,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import React, { useState, useContext, useEffect } from "react";
 import { Link, useLocation, useNavigate} from "react-router-dom";
 import UserContext from "../context/UserContext";
-import Navbar from "./Navbar";
-import background from '../assets/Background.png'
+import '../App.css'
+
 
 function EmailVerification(props) {
     const location = useLocation();
@@ -47,10 +47,9 @@ function EmailVerification(props) {
     }
 
   return (
-    <div style={{ backgroundImage: `url(${background})`, minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <Navbar />
+    <div className="flex justify-center items-center">
         <form>
-            <div className="flex flex-col gap-7 bg-white py-10 px-28 rounded-lg justify-center">
+            <div className="flex flex-col gap-5 mt-32 bg-white py-10 px-28 rounded-lg justify-center">
               <h3 className="text-green-700 text-center">Email Verification</h3>
               <TextField id="outlined-basic" label="Email" name='email' value={user.email} disabled color="success" InputProps={{
                 startAdornment: (

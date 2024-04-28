@@ -1,17 +1,22 @@
 import React from "react";
-import Navbar from "./Navbar";
-import backgroundImage from "../assets/Background.png";
 import Footer from "./Footer";
+import '../App.css'
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
+  const navigate = useNavigate();
+  const handleClick = () =>{
+    if(localStorage.getItem('token')){
+      navigate('/parking');
+    }else{
+      navigate('/login')
+    }
+  }
   return (
     <div className="dashboard">
       <div
         className="bg-cover bg-center h-screen flex flex-col justify-center items-center"
-        style={{ backgroundImage: `url(${backgroundImage})` }}
       >
-        <Navbar />
-
         <div
           className="glass-effect p-8 rounded-lg text-center "
           style={{ width: "50%" }}
@@ -27,7 +32,7 @@ const Dashboard = () => {
             Start your stress-free parking journey today.
           </p>
         </div>
-        <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 mt-2 rounded-full ">
+        <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-6 mt-2 rounded-full " onClick={handleClick}>
           Search for spot
         </button>
       </div>

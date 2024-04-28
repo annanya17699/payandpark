@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 import backgroundImage from "../assets/Background.png";
+import Footer from "./Footer";
 
 const Dashboard = () => {
   return (
@@ -10,11 +11,14 @@ const Dashboard = () => {
         style={{ backgroundImage: `url(${backgroundImage})` }}
       >
         <Navbar />
+
         <div
           className="glass-effect p-8 rounded-lg text-center "
           style={{ width: "50%" }}
         >
-          <h1 className="font-BlueberryRegular text-6xl p-2 text-white">Pay&Park</h1>
+          <h1 className="font-BlueberryRegular text-6xl p-2 text-white">
+            Pay&Park
+          </h1>
           <p className="text-3xl text-white mb-8 ">
             Parking Made Easy
             <br />
@@ -27,6 +31,7 @@ const Dashboard = () => {
           Search for spot
         </button>
       </div>
+      <Footer />
     </div>
   );
 };

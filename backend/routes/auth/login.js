@@ -117,5 +117,32 @@ router.post(
           }
       }
   );
+
+  router.post(
+    "/updateuser", fetchUser, 
+    async (req,res)=>{
+        try {
+            let userId = req.user.id;
+            const user = await User.findById(userId).select("-password")
+            if(user){
+              const updateUser = await User.findByIdAndUpdate(
+                userId, 
+                {
+                  vehicleNumber: req.body.vehicleNumber,
+                  vehicleType: req.body.vehicleType
+                },
+                {
+                  new: true
+                }
+              )
+              res.send(updateUser)
+            }else{
+              res.status(401).json({ error: "Unauthorised" });
+            }
+        } catch (error) {
+            res.status(500).json({ error: error });
+        }
+    }
+);
   
   module.exports = router;

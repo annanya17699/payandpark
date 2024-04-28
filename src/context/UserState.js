@@ -71,9 +71,33 @@ const UserState = (props) => {
     }
   };
 
+  const fetchUser = async() =>{
+    const resp = await fetch('http://localhost:5000/api/auth/getuser',{
+      method : 'POST',
+      headers : {
+        "Content-Type": "application/json",
+        "auth-token":localStorage.getItem('token')
+      } 
+    });
+    const json = await resp.json();
+    return json
+  }
+
+  const updateUser = async(vehicleNumber, vehicleType) =>{
+    const resp = await fetch('http://localhost:5000/api/auth/updateuser',{
+      method : 'POST',
+      headers : {
+        "Content-Type": "application/json",
+        "auth-token":localStorage.getItem('token')
+      } ,
+      body: JSON.stringify({vehicleNumber, vehicleType})
+    });
+    const json = await resp.json();
+    return json
+  }
 
   return (
-    <UserContext.Provider value={{ userStructure, loginUser, generateOtp, signupUser, vehicleCategory }}>
+    <UserContext.Provider value={{ userStructure, loginUser, generateOtp, signupUser, vehicleCategory, fetchUser, updateUser }}>
       {props.children}
     </UserContext.Provider>
   );

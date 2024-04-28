@@ -1,4 +1,4 @@
-import { TextField, MenuItem } from "@mui/material";
+import { TextField, MenuItem, IconButton } from "@mui/material";
 import InputAdornment from '@mui/material/InputAdornment';
 import PersonOutlinedIcon from '@mui/icons-material/PersonOutlined';
 import EmailIcon from '@mui/icons-material/Email';
@@ -8,9 +8,12 @@ import { Link , useNavigate} from "react-router-dom";
 import UserContext from "../context/UserContext";
 import TwoWheelerIcon from '@mui/icons-material/TwoWheeler';
 import ReorderIcon from '@mui/icons-material/Reorder';
+import { Visibility, VisibilityOff } from "@mui/icons-material";
 import '../App.css';
 
 function Sign(props) {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(!open);
   const context = useContext(UserContext);
   const {userStructure, vehicleCategory} = context;
   const navigate = useNavigate();
@@ -41,10 +44,17 @@ function Sign(props) {
               </InputAdornment>
             ),
           }} />
-          <TextField id="outlined-password-input" label="Password" color="success" onChange={handleChange} name="password" InputProps={{
+          <TextField id="outlined-password-input" label="Password" color="success" onChange={handleChange} name="password" type={open ? 'text' : 'password'} InputProps={{
             startAdornment: (
               <InputAdornment position="start">
                 <LockOutlinedIcon /> 
+              </InputAdornment>
+            ),
+            endAdornment: (
+              <InputAdornment position="end">
+                <IconButton onClick={handleOpen}>
+                {!open ? <Visibility /> : <VisibilityOff/> }
+                </IconButton>
               </InputAdornment>
             ),
           }} />

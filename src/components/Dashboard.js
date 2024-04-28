@@ -1,4 +1,5 @@
 import React from "react";
+import Footer from "./Footer";
 import '../App.css'
 import { useNavigate } from "react-router-dom";
 
@@ -20,7 +21,9 @@ const Dashboard = () => {
           className="glass-effect p-8 rounded-lg text-center "
           style={{ width: "50%" }}
         >
-          <h1 className="font-BlueberryRegular text-6xl p-2 text-white">Pay&Park</h1>
+          <h1 className="font-BlueberryRegular text-6xl p-2 text-white">
+            Pay&Park
+          </h1>
           <p className="text-3xl text-white mb-8 ">
             Parking Made Easy
             <br />
@@ -33,6 +36,7 @@ const Dashboard = () => {
           Search for spot
         </button>
       </div>
+      <Footer />
     </div>
   );
 };

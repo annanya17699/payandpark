@@ -1,5 +1,4 @@
 import React from "react";
-import Footer from "./Footer";
 import '../App.css'
 import { useNavigate } from "react-router-dom";
 
@@ -36,7 +35,6 @@ const Dashboard = () => {
           Search for spot
         </button>
       </div>
-      <Footer />
     </div>
   );
 };

@@ -58,7 +58,7 @@ function Sign(props) {
               </InputAdornment>
             ),
           }} />
-          <TextField id="outlined-basic" color="success" onChange={handleChange} name="vehicleType" label="Vehicle Category" select type='text' InputProps={{
+          <TextField id="outlined-basic" color="success" onChange={handleChange} name="vehicleType" label="Vehicle Category" select InputProps={{
             startAdornment: (
               <InputAdornment position="start">
                 <ReorderIcon />

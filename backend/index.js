@@ -14,6 +14,7 @@ app.use(express.json());
 
 app.use('/api/auth', require('./routes/auth/login'));
 app.use('/api/otp', require('./routes/auth/otp'));
+app.use('/api/building', require('./routes/data/building'));
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

@@ -12,6 +12,9 @@ import React, { useState } from 'react';
 import ParkingDetail from "./components/ParkingDetail";
 import Navbar from "./components/Navbar";
 import UserDetails from "./components/UserDetails";
+import Building from "./components/Building";
+import BuildingState from "./context/BuildingState";
+import Footer from "./components/Footer";
 function App() {
 
   const [alert, setAlert] = useState(null);
@@ -27,6 +30,7 @@ function App() {
 
   return (
     <UserState>
+      <BuildingState>
       {
         <>
           {alert && <Alert alert={alert} />}
@@ -67,10 +71,18 @@ function App() {
                 <UserDetails showAlert={showAlert} />
                 </>
               } />
+              <Route path="/building" element={
+                <>
+                <Navbar/>
+                <Building showAlert={showAlert} />
+                </>
+              } />
             </Routes>
+            <Footer/>
           </BrowserRouter>
         </>
       }
+      </BuildingState>
     </UserState>
   );
 }
